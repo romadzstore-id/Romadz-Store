@@ -8,10 +8,73 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    
+    <!-- JavaScript untuk menangani navigasi -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tangani navigasi untuk tautan internal dengan format /Page
+            const internalLinks = document.querySelectorAll('a[href^="/"]');
+            
+            internalLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    // Jika bukan tautan eksternal (tidak mengandung ://)
+                    if (href.startsWith('/') && !href.includes('://')) {
+                        e.preventDefault();
+                        
+                        // Hapus slash di awal jika ada
+                        const pageName = href.replace('/', '');
+                        
+                        if (pageName) {
+                            // Scroll ke bagian yang sesuai
+                            const targetSection = document.getElementById(pageName.toLowerCase());
+                            if (targetSection) {
+                                window.scrollTo({
+                                    top: targetSection.offsetTop - 80,
+                                    behavior: 'smooth'
+                                });
+                                
+                                // Update URL tanpa reload halaman
+                                history.pushState(null, '', '/' + pageName);
+                            } else if (pageName.toLowerCase() === 'home' || pageName.toLowerCase() === 'hero') {
+                                // Scroll ke atas untuk home
+                                window.scrollTo({
+                                    top: 0,
+                                    behavior: 'smooth'
+                                });
+                                history.pushState(null, '', '/');
+                            }
+                        }
+                    }
+                });
+            });
+            
+            // Tangani tombol back/forward browser
+            window.addEventListener('popstate', function() {
+                const path = window.location.pathname;
+                if (path === '/' || path === '') {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    const sectionId = path.replace('/', '').toLowerCase();
+                    const targetSection = document.getElementById(sectionId);
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <!-- Hero Section -->
-    <section class="hero" id="hero">
+    <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-logo">
@@ -20,8 +83,8 @@
                 </div>
                 <div class="neon-line"></div>
                 <p class="hero-subtitle"></p>
-                <p class="hero-desc">“Solusi Layanan Digital: Top Up Game, Hosting, Nomor Virtual (Nokos), Booster Media Sosial, Jasa Edit Script Bot, Dan Lain Lainya.”</p>
-                <a href="#produk" class="cta-button">Lihat Layanan <i class="fas fa-arrow-down"></i></a>
+                <p class="hero-desc">"Solusi Layanan Digital: Top Up Game, Hosting, Nomor Virtual (Nokos), Booster Media Sosial, Jasa Edit Script Bot, Dan Lain Lainya."</p>
+                <a href="/Product" class="cta-button">Lihat Layanan <i class="fas fa-arrow-down"></i></a>
             </div>
         </div>
         <div class="hero-bg-elements">
@@ -32,7 +95,7 @@
     </section>
 
     <!-- Tentang Kami -->
-    <section class="tentang" id="tentang">
+    <section class="tentang" id="about">
         <div class="container">
             <h2 class="section-title">Visi & Misi Kami</h2>
             <div class="section-divider"></div>
@@ -70,7 +133,7 @@
     </section>
 
     <!-- Produk & Layanan -->
-    <section class="produk" id="produk">
+    <section class="produk" id="product">
         <div class="container">
             <h2 class="section-title">Produk & Layanan</h2>
             <div class="section-divider"></div>
@@ -150,7 +213,7 @@
     </section>
 
     <!-- Kontak -->
-    <section class="kontak" id="kontak">
+    <section class="kontak" id="contact">
         <div class="container">
             <h2 class="section-title">Hubungi Kami</h2>
             <div class="section-divider"></div>
@@ -182,14 +245,13 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-links">
-                    <a href="hero">Beranda</a>
-                    <a href="tentang">Tentang</a>
-                    <a href="produk">Layanan</a>
-                    <a href="kontak">Kontak</a>
+                    <a href="/Home">Beranda</a>
+                    <a href="/About">Tentang</a>
+                    <a href="/Product">Layanan</a>
+                    <a href="/Contact">Kontak</a>
                 </div>
                 
-                    <p class="footer-note">© Romadz Store | 2024 ~ Sekarang</p>
-                </div>
+                <p class="footer-note">© Romadz Store | 2024 ~ Sekarang</p>
             </div>
         </div>
     </footer>
@@ -199,5 +261,4 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 </body>
-                        </html>
-                        
+</html>
