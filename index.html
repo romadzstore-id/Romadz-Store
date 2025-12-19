@@ -6,17 +6,18 @@
     <title>Romadz Store - Digital Services for Automation & Online Growth</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-bg">
-            <div class="gradient-overlay"></div>
-            <div class="noise-texture"></div>
-        </div>
+        <div class="bg-animation"></div>
         <div class="container">
             <div class="hero-content">
-                <h1 class="fade-in">Romadz Store</h1>
+                <h1 class="fade-in">
+                    <span class="rgb-text">Romadz</span>
+                    <span class="rgb-text delay">Store</span>
+                </h1>
                 <p class="hero-subtitle fade-in delay-1">Digital Services for Automation & Online Growth</p>
                 <a href="https://wa.me/6283171889474" target="_blank" class="btn btn-whatsapp fade-in delay-2">
                     <i class="fab fa-whatsapp"></i> Contact via WhatsApp
@@ -28,7 +29,7 @@
     <!-- About Section -->
     <section class="about">
         <div class="container">
-            <h2 class="fade-in">About</h2>
+            <h2 class="fade-in"><span class="rgb-text">About</span></h2>
             <p class="fade-in delay-1">Romadz Store adalah penyedia layanan digital yang fokus pada automasi, hosting, dan solusi online praktis untuk kebutuhan personal maupun bisnis kecil.</p>
         </div>
     </section>
@@ -36,33 +37,33 @@
     <!-- Services Section -->
     <section class="services">
         <div class="container">
-            <h2 class="fade-in">Services</h2>
+            <h2 class="fade-in"><span class="rgb-text">Services</span></h2>
             <ul class="services-list">
                 <li class="service-item fade-in delay-1">
                     <div class="service-title">
-                        <i class="fas fa-robot service-icon"></i>
-                        WhatsApp Bot Automation
+                        <i class="fas fa-robot service-icon rgb-icon"></i>
+                        <span class="rgb-text">WhatsApp Bot Automation</span>
                     </div>
                     <p class="service-desc">Solusi otomatisasi WhatsApp untuk bisnis Anda dengan sistem bot yang responsif dan mudah diatur.</p>
                 </li>
                 <li class="service-item fade-in delay-2">
                     <div class="service-title">
-                        <i class="fas fa-server service-icon"></i>
-                        Bot Hosting
+                        <i class="fas fa-server service-icon rgb-icon"></i>
+                        <span class="rgb-text">Bot Hosting</span>
                     </div>
                     <p class="service-desc">Layanan hosting khusus untuk bot dengan uptime tinggi dan performa optimal.</p>
                 </li>
                 <li class="service-item fade-in delay-1">
                     <div class="service-title">
-                        <i class="fas fa-cogs service-icon"></i>
-                        Panel Server
+                        <i class="fas fa-cogs service-icon rgb-icon"></i>
+                        <span class="rgb-text">Panel Server</span>
                     </div>
                     <p class="service-desc">Management panel untuk mengontrol server dan layanan hosting dengan antarmuka yang intuitif.</p>
                 </li>
                 <li class="service-item fade-in delay-2">
                     <div class="service-title">
-                        <i class="fas fa-tools service-icon"></i>
-                        Digital Tools
+                        <i class="fas fa-tools service-icon rgb-icon"></i>
+                        <span class="rgb-text">Digital Tools</span>
                     </div>
                     <p class="service-desc">Koleksi tools digital untuk membantu produktivitas dan automasi pekerjaan sehari-hari.</p>
                 </li>
@@ -73,38 +74,23 @@
     <!-- Contact Section -->
     <section class="contact">
         <div class="container">
-            <h2 class="fade-in">Contact</h2>
+            <h2 class="fade-in"><span class="rgb-text">Contact</span></h2>
             <div class="contact-items">
                 <a href="https://wa.me/6283171889474" target="_blank" class="contact-item fade-in delay-1">
-                    <div class="contact-icon">
+                    <div class="contact-icon rgb-icon">
                         <i class="fab fa-whatsapp"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h3>WhatsApp</h3>
-                        <p>+62 831 7188 9474</p>
-                        <p>Klik untuk chat langsung di WhatsApp</p>
                     </div>
                 </a>
                 
                 <a href="mailto:romadzstore@gmail.com" class="contact-item fade-in delay-2">
-                    <div class="contact-icon">
+                    <div class="contact-icon rgb-icon">
                         <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h3>Email</h3>
-                        <p>romadzstore@gmail.com</p>
-                        <p>Hubungi kami melalui email untuk pertanyaan detail</p>
                     </div>
                 </a>
                 
-                <a href="https://t.me/rmddz" target="_blank" class="contact-item fade-in delay-1">
-                    <div class="contact-icon">
+                <a href="https://t.me/rmddz" target="_blank" class="contact-item fade-in delay-3">
+                    <div class="contact-icon rgb-icon">
                         <i class="fab fa-telegram"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h3>Telegram</h3>
-                        <p>@rmddz</p>
-                        <p>Kirim pesan melalui Telegram untuk respon cepat</p>
                     </div>
                 </a>
             </div>
@@ -115,7 +101,7 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">Romadz Store</div>
+                <div class="footer-logo rgb-text">Romadz Store</div>
                 <div class="copyright">© 2025</div>
                 <div class="social-links">
                     <a href="#" class="social-link">
@@ -131,33 +117,5 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        // Animasi sederhana
-        document.addEventListener('DOMContentLoaded', function() {
-            const fadeElements = document.querySelectorAll('.fade-in');
-            
-            const fadeInOnScroll = function() {
-                fadeElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    
-                    if (elementTop < window.innerHeight - 100) {
-                        element.style.opacity = "1";
-                        element.style.transform = "translateY(0)";
-                    }
-                });
-            };
-            
-            // Set initial state
-            fadeElements.forEach(element => {
-                element.style.opacity = "0";
-                element.style.transform = "translateY(20px)";
-                element.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-            });
-            
-            window.addEventListener('scroll', fadeInOnScroll);
-            fadeInOnScroll();
-        });
-    </script>
 </body>
-  </html>
+                    </html>
