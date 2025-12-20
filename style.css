@@ -15,8 +15,6 @@
     --accent-blue2: #0077ff;
     --accent-blue3: #5a67d8;
     --accent-blue4: #64ffda;
-    --accent-purple: #8a2be2;
-    --accent-pink: #ff00ff;
     --neon-glow: 0 0 15px rgba(0, 212, 255, 0.5);
     --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.2);
     --shadow-hard: 0 20px 40px rgba(0, 0, 0, 0.3);
@@ -46,68 +44,6 @@ body {
 section {
     padding: 100px 0;
     position: relative;
-}
-
-/* Animasi Gradient Berputar */
-@keyframes gradientFlow {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-@keyframes gradientFlowDiagonal {
-    0% {
-        background-position: 0% 0%;
-    }
-    50% {
-        background-position: 100% 100%;
-    }
-    100% {
-        background-position: 0% 0%;
-    }
-}
-
-@keyframes rainbowGlow {
-    0% {
-        filter: hue-rotate(0deg);
-        box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
-    }
-    33% {
-        filter: hue-rotate(120deg);
-        box-shadow: 0 0 20px rgba(100, 255, 218, 0.6);
-    }
-    66% {
-        filter: hue-rotate(240deg);
-        box-shadow: 0 0 20px rgba(138, 43, 226, 0.6);
-    }
-    100% {
-        filter: hue-rotate(360deg);
-        box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
-    }
-}
-
-@keyframes colorShift {
-    0% {
-        background: linear-gradient(90deg, var(--accent-blue1), var(--accent-blue2));
-    }
-    25% {
-        background: linear-gradient(90deg, var(--accent-blue2), var(--accent-blue4));
-    }
-    50% {
-        background: linear-gradient(90deg, var(--accent-blue4), var(--accent-purple));
-    }
-    75% {
-        background: linear-gradient(90deg, var(--accent-purple), var(--accent-pink));
-    }
-    100% {
-        background: linear-gradient(90deg, var(--accent-pink), var(--accent-blue1));
-    }
 }
 
 /* Hero Section */
@@ -157,49 +93,30 @@ section {
     height: 350px;
     background: radial-gradient(circle, rgba(0, 212, 255, 0.2) 0%, transparent 70%);
     z-index: -1;
-    animation: pulse 4s infinite alternate, rainbowGlow 8s infinite linear;
+    animation: pulse 4s infinite alternate;
 }
 
 .hero-title {
     font-size: 5rem;
     font-weight: 700;
     margin-bottom: 20px;
-    background: linear-gradient(
-        90deg, 
-        var(--accent-blue1), 
-        var(--accent-blue2), 
-        var(--accent-blue4),
-        var(--accent-purple),
-        var(--accent-pink),
-        var(--accent-blue1)
-    );
-    background-size: 300% 100%;
+    background: linear-gradient(90deg, var(--accent-blue1), var(--accent-blue2), var(--accent-blue4));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     letter-spacing: 1px;
     text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
-    animation: gradientFlow 8s ease-in-out infinite;
 }
 
 .neon-line {
     width: 300px;
     height: 3px;
-    background: linear-gradient(
-        90deg, 
-        var(--accent-blue1), 
-        var(--accent-blue2), 
-        var(--accent-blue4),
-        var(--accent-purple),
-        var(--accent-blue1)
-    );
-    background-size: 300% 100%;
+    background: linear-gradient(90deg, var(--accent-blue1), var(--accent-blue2), var(--accent-blue4));
     margin: 0 auto 30px;
     border-radius: 3px;
     box-shadow: var(--neon-glow);
     position: relative;
     overflow: hidden;
-    animation: gradientFlow 6s ease-in-out infinite;
 }
 
 .neon-line::after {
@@ -209,7 +126,7 @@ section {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
     animation: slide 3s infinite linear;
 }
 
@@ -232,14 +149,7 @@ section {
 .cta-button {
     display: inline-block;
     padding: 16px 40px;
-    background: linear-gradient(
-        90deg, 
-        var(--accent-blue1), 
-        var(--accent-blue2), 
-        var(--accent-blue4),
-        var(--accent-purple)
-    );
-    background-size: 300% 100%;
+    background: rgba(17, 34, 64, 0.7);
     color: var(--text-primary);
     text-decoration: none;
     border-radius: 50px;
@@ -251,7 +161,6 @@ section {
     overflow: hidden;
     z-index: 1;
     box-shadow: var(--shadow-soft);
-    animation: gradientFlow 5s ease-in-out infinite;
 }
 
 .cta-button::before {
@@ -261,29 +170,20 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        90deg, 
-        var(--accent-pink), 
-        var(--accent-purple), 
-        var(--accent-blue1),
-        var(--accent-blue2)
-    );
-    background-size: 300% 100%;
+    background: linear-gradient(90deg, var(--accent-blue1), var(--accent-blue2));
     opacity: 0;
     transition: opacity 0.4s;
     z-index: -1;
-    animation: gradientFlow 5s ease-in-out infinite;
-}
-
-.cta-button:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hard), 0 0 30px rgba(0, 212, 255, 0.4);
-    border-color: transparent;
-    animation: none;
 }
 
 .cta-button:hover::before {
     opacity: 1;
+}
+
+.cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hard);
+    border-color: transparent;
 }
 
 .cta-button i {
@@ -310,7 +210,6 @@ section {
     border-radius: 50%;
     filter: blur(60px);
     opacity: 0.3;
-    animation: colorShift 10s infinite linear;
 }
 
 .circle-1 {
@@ -319,7 +218,7 @@ section {
     background: var(--accent-blue1);
     top: 10%;
     left: 10%;
-    animation: float 15s infinite ease-in-out, colorShift 12s infinite linear;
+    animation: float 15s infinite ease-in-out;
 }
 
 .circle-2 {
@@ -328,7 +227,7 @@ section {
     background: var(--accent-blue2);
     top: 60%;
     right: 10%;
-    animation: float 18s infinite ease-in-out reverse, colorShift 15s infinite linear reverse;
+    animation: float 18s infinite ease-in-out reverse;
 }
 
 .circle-3 {
@@ -337,7 +236,7 @@ section {
     background: var(--accent-blue4);
     bottom: 20%;
     left: 20%;
-    animation: float 12s infinite ease-in-out, colorShift 9s infinite linear;
+    animation: float 12s infinite ease-in-out;
 }
 
 /* Section Styles */
@@ -346,14 +245,7 @@ section {
     font-size: 3rem;
     margin-bottom: 20px;
     font-weight: 700;
-    background: linear-gradient(
-        90deg, 
-        var(--accent-blue1), 
-        var(--accent-blue2), 
-        var(--accent-blue4),
-        var(--accent-purple)
-    );
-    background-size: 300% 100%;
+    background: linear-gradient(90deg, var(--accent-blue1), var(--accent-blue2));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -361,24 +253,15 @@ section {
     display: inline-block;
     left: 50%;
     transform: translateX(-50%);
-    animation: gradientFlow 8s ease-in-out infinite;
 }
 
 .section-divider {
     width: 150px;
     height: 3px;
-    background: linear-gradient(
-        90deg, 
-        var(--accent-blue1), 
-        var(--accent-blue2), 
-        var(--accent-blue4),
-        var(--accent-purple)
-    );
-    background-size: 300% 100%;
+    background: linear-gradient(90deg, var(--accent-blue1), var(--accent-blue2), var(--accent-blue4));
     margin: 0 auto 30px;
     border-radius: 3px;
     box-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
-    animation: gradientFlow 6s ease-in-out infinite;
 }
 
 /* Tentang Section */
@@ -424,18 +307,10 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        135deg, 
-        rgba(0, 212, 255, 0.1), 
-        rgba(0, 119, 255, 0.1),
-        rgba(100, 255, 218, 0.1),
-        rgba(138, 43, 226, 0.1)
-    );
-    background-size: 300% 300%;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(0, 119, 255, 0.05));
     opacity: 0;
     transition: opacity 0.5s;
     z-index: -1;
-    animation: gradientFlowDiagonal 10s ease-in-out infinite;
 }
 
 .card:hover::before {
@@ -451,17 +326,10 @@ section {
 .card-icon {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    background: linear-gradient(
-        90deg, 
-        var(--accent-blue1), 
-        var(--accent-blue2),
-        var(--accent-purple)
-    );
-    background-size: 300% 100%;
+    background: linear-gradient(90deg, var(--accent-blue1), var(--accent-blue2));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    animation: gradientFlow 5s ease-in-out infinite;
 }
 
 .card-title {
@@ -519,23 +387,17 @@ section {
 .produk-card::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-        45deg, 
-        transparent 30%, 
-        rgba(0, 212, 255, 0.1) 50%, 
-        transparent 70%
-    );
-    transition: transform 0.7s;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+    transition: left 0.7s;
     z-index: -1;
-    transform: rotate(0deg);
 }
 
 .produk-card:hover::before {
-    transform: rotate(180deg);
+    left: 100%;
 }
 
 .produk-card:hover {
@@ -547,17 +409,10 @@ section {
 .produk-icon {
     font-size: 2.2rem;
     margin-bottom: 20px;
-    background: linear-gradient(
-        90deg, 
-        var(--accent-blue1), 
-        var(--accent-blue4),
-        var(--accent-purple)
-    );
-    background-size: 300% 100%;
+    background: linear-gradient(90deg, var(--accent-blue1), var(--accent-blue4));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    animation: gradientFlow 6s ease-in-out infinite;
 }
 
 .produk-title {
@@ -577,25 +432,18 @@ section {
 .produk-button {
     display: inline-block;
     padding: 14px 30px;
-    background: linear-gradient(
-        90deg, 
-        var(--accent-blue1), 
-        var(--accent-blue2),
-        var(--accent-purple)
-    );
-    background-size: 300% 100%;
+    background: transparent;
     color: var(--text-primary);
     text-decoration: none;
     border-radius: 50px;
     font-weight: 500;
     font-size: 1rem;
     transition: var(--transition);
-    border: 1px solid transparent;
+    border: 1px solid rgba(0, 212, 255, 0.5);
     text-align: center;
     position: relative;
     overflow: hidden;
     z-index: 1;
-    animation: gradientFlow 4s ease-in-out infinite;
 }
 
 .produk-button::before {
@@ -605,30 +453,22 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        90deg, 
-        var(--accent-pink), 
-        var(--accent-purple),
-        var(--accent-blue1)
-    );
-    background-size: 300% 100%;
+    background: linear-gradient(90deg, var(--accent-blue1), var(--accent-blue2));
     opacity: 0;
     transition: opacity 0.4s;
     z-index: -1;
-    animation: gradientFlow 4s ease-in-out infinite;
 }
 
 .produk-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
-    animation: none;
+    box-shadow: 0 10px 20px rgba(0, 212, 255, 0.2);
 }
 
 .produk-button:hover::before {
     opacity: 1;
 }
 
-/* Kontak Section */
+/* Kontak Section - Revisi */
 .kontak {
     position: relative;
     padding: 80px 0;
@@ -643,13 +483,7 @@ section {
 }
 
 .kontak-card {
-    background: linear-gradient(
-        135deg, 
-        rgba(0, 212, 255, 0.1), 
-        rgba(0, 119, 255, 0.1),
-        rgba(138, 43, 226, 0.1)
-    );
-    background-size: 300% 300%;
+    background: var(--card-bg);
     backdrop-filter: blur(10px);
     border-radius: 20px;
     width: 100px;
@@ -664,7 +498,6 @@ section {
     position: relative;
     overflow: hidden;
     z-index: 1;
-    animation: gradientFlowDiagonal 8s ease-in-out infinite;
 }
 
 .kontak-card::after {
@@ -674,64 +507,37 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        135deg, 
-        rgba(0, 212, 255, 0.2), 
-        rgba(0, 119, 255, 0.2),
-        rgba(100, 255, 218, 0.2)
-    );
-    background-size: 300% 300%;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(0, 119, 255, 0.2));
     opacity: 0;
     transition: opacity 0.4s;
     border-radius: 20px;
-    animation: gradientFlowDiagonal 8s ease-in-out infinite;
-}
-
-.kontak-card:hover {
-    transform: translateY(-10px) scale(1.1);
-    box-shadow: var(--shadow-hard);
-    border-color: rgba(0, 212, 255, 0.5);
-    animation: rainbowGlow 2s infinite linear;
 }
 
 .kontak-card:hover::after {
     opacity: 1;
 }
 
+.kontak-card:hover {
+    transform: translateY(-10px) scale(1.1);
+    box-shadow: var(--shadow-hard);
+    border-color: rgba(0, 212, 255, 0.5);
+}
+
 .kontak-icon {
     font-size: 2.5rem;
-    background: linear-gradient(
-        90deg, 
-        var(--accent-blue1), 
-        var(--accent-blue2),
-        var(--accent-purple)
-    );
-    background-size: 300% 100%;
+    background: linear-gradient(90deg, var(--accent-blue1), var(--accent-blue2));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     position: relative;
     z-index: 2;
-    animation: gradientFlow 5s ease-in-out infinite;
 }
 
-/* Footer */
+/* Footer - Revisi */
 .footer {
-    background: linear-gradient(
-        to bottom,
-        rgba(10, 25, 47, 0.95),
-        rgba(17, 34, 64, 0.95)
-    );
+    background: rgba(10, 25, 47, 0.95);
     padding: 40px 0 20px;
-    border-top: 1px solid transparent;
-    border-image: linear-gradient(
-        90deg, 
-        var(--accent-blue1), 
-        var(--accent-blue2), 
-        var(--accent-purple)
-    ) 1;
-    background-size: 300% 100%;
-    animation: gradientFlow 10s ease-in-out infinite;
+    border-top: 1px solid rgba(0, 212, 255, 0.1);
 }
 
 .footer-content {
@@ -765,15 +571,8 @@ section {
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(
-        90deg, 
-        var(--accent-blue1), 
-        var(--accent-blue4),
-        var(--accent-purple)
-    );
-    background-size: 300% 100%;
+    background: linear-gradient(90deg, var(--accent-blue1), var(--accent-blue4));
     transition: width 0.3s;
-    animation: gradientFlow 6s ease-in-out infinite;
 }
 
 .footer-links a:hover {
@@ -782,7 +581,6 @@ section {
 
 .footer-links a:hover::after {
     width: 100%;
-    animation: none;
 }
 
 .footer-copyright {
@@ -810,13 +608,7 @@ section {
     right: 30px;
     width: 60px;
     height: 60px;
-    background: linear-gradient(
-        135deg, 
-        #25D366, 
-        #128C7E,
-        #075E54
-    );
-    background-size: 300% 300%;
+    background: linear-gradient(135deg, #25D366, #128C7E);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -827,16 +619,14 @@ section {
     box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
     transition: var(--transition);
     z-index: 1000;
-    animation: gradientFlowDiagonal 6s ease-in-out infinite;
 }
 
 .float-whatsapp:hover {
     transform: scale(1.1) translateY(-5px);
     box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
-    animation: rainbowGlow 2s infinite linear;
 }
 
-/* Animations Tambahan */
+/* Animations */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -961,4 +751,28 @@ section {
     }
     
     .kontak-card {
-        width: 80p
+        width: 80px;
+        height: 80px;
+    }
+    
+    .kontak-icon {
+        font-size: 2rem;
+    }
+    
+    .float-whatsapp {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .footer-links {
+        gap: 15px;
+    }
+    
+    .footer-links a {
+        font-size: 1rem;
+    }
+    }
+    
